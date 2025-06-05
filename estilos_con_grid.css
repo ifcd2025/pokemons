@@ -16,9 +16,9 @@ header h1 {
     text-align: center;
 }
 main {
-    display: flex;
+    display: grid;
     justify-content: center;
-    flex-wrap: wrap; /* Poner en otra fila las que no quepan */
+    grid-template-columns: repeat(3, auto);
     gap:20px;
     margin: 30px auto;
 }
