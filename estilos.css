@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-weight: normal; /* Quitamos las posibles negritas */
+}
+body {
+    background-color: bisque;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header h1 {
+    font-size: 1.5em;
+    letter-spacing: .7em;
+    text-transform: uppercase; /* mayúsculas */
+    font-weight: bold;
+    text-align: center;
+}
+main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Poner en otra fila las que no quepan */
+    gap:20px;
+    margin: 30px auto;
+}
+.carta {
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 300px; /* como hay imágenes de diferente tamaño, damos a
+            todas las cartas el mismo ancho */
+    /* Para que el fondo blanco del encabezado de la carta no estropee
+    el border-radius*/
+    overflow: hidden; /* Ocultar lo que quede por fuera*/
+    position: relative; /* Para poner luego la pokebola centrada*/
+    header {
+        background-color: white; 
+        display: flex;
+        justify-content: space-between; /* uno a cada lado */
+        padding: .3em;      
+        h2, div {
+            font-size: 1.3em;
+            font-weight: bold; 
+        }
+        div{
+            color:goldenrod;
+        }
+    }
+    >img { /* la imagen que sea hija directa de la carta */
+        /* La centramos horizontalmente */
+        display: block;
+        margin: auto;
+    }
+    .pokebola {
+        position: absolute;
+        /* Para que la carta sea su padre hay que darle a esta position: relative */
+        /* Truco para centrarla */
+        top:0;
+        left:0;
+        right: 0;
+        bottom:0;
+        opacity: .4;
+    }
+    footer {
+        display: flex;
+        justify-content: space-between;
+        /* Centrado vertical para que el texto y las imágenes queden centradas
+        verticalmente */
+        align-items: center;
+        background-color: bisque;
+        padding: .3em;
+    }
+    footer img {
+        width: 1.4em;
+    }
+}
+.carta:hover {
+    >img {
+        transform: scale(1.1);
+        transition: transform .5s;
+        
+    }
+    footer img {
+        transform: rotate(360deg);
+        transition: transform .5s;
+    }
+}
+
+
+.cartaAgua {
+    background: linear-gradient(180deg, rgb(20, 116, 241) 0%,
+         rgb(117, 161, 243) 100%);
+}
+.cartaAgua:hover {
+    background: linear-gradient(240deg, rgb(20, 116, 241) 0%,
+         rgb(117, 161, 243) 100%);
+}
+.cartaFuego {
+    background: linear-gradient(180deg, rgb(250, 29, 14) 0%,
+         rgb(252, 99, 99) 100%);
+}
+.cartaFuego:hover {
+    background: linear-gradient(240deg, rgb(250, 29, 14) 0%,
+         rgb(252, 99, 99) 100%);
+}
+.cartaHierba {
+    background: linear-gradient(180deg, rgb(96, 201, 76) 0%,
+         rgb(196, 253, 130) 100%);
+}
+.cartaHierba:hover {
+    background: linear-gradient(240deg, rgb(96, 201, 76) 0%,
+         rgb(196, 253, 130) 100%);
+}
+
+/* Si quisiéramos poner la última carta de primera*/
+.carta:last-of-type {
+    order: -1; /* El orden por defecto es 0, con lo que poniendo un valor menor,
+        se pone antes*/
+}
